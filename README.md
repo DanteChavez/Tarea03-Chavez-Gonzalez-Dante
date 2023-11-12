@@ -1,1 +1,2 @@
-# Tarea3-Chavez-Gonzalez-Dante
+Integrane:
+Dante Chavez     dante.chavez@alumnos.uv.cl
