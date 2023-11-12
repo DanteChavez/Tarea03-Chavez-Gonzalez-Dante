@@ -7,7 +7,12 @@ try:
     import requests
 except ImportError:
     subprocess.check_call(["pip", "install", "requests-2.31.0.tar.gz"])
-    os.system('cls')
+    sistema_operativo = os.name
+    print(sistema_operativo)
+    if sistema_operativo == 'nt':  # Windows
+        os.system('cls')
+    else:  # Linux, macOS, etc.
+        os.system('clear')
     import requests
 
 # Función para obtener los datos de fabricación de una tarjeta de red por IP
