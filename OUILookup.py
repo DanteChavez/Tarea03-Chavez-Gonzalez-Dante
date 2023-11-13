@@ -8,10 +8,9 @@ try:
 except ImportError:
     subprocess.check_call(["pip", "install", "requests-2.31.0.tar.gz"])
     sistema_operativo = os.name
-    print(sistema_operativo)
-    if sistema_operativo == 'nt':  # Windows
+    if sistema_operativo == 'nt':
         os.system('cls')
-    else:  # Linux, macOS, etc.
+    else: 
         os.system('clear')
     import requests
 
@@ -92,7 +91,7 @@ Use: ./OUILookup --ip <IP> | --mac <MAC> | --arp | [--help]
     # Iniciar lectura de argumentos
     for opt, arg in opts:
         # Ejecutar comando --help
-        if opt == '--help':
+        if opt in ('--help',"-h"):
             print(ayuda)
             sys.exit()
         # Comando --ip
