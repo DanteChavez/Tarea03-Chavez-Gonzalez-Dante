@@ -3,6 +3,7 @@ import getopt
 import sys
 import time
 import os
+# ver si se tiene requests instalado y si no, instalarlo
 try:
     import requests
 except ImportError:
@@ -29,14 +30,13 @@ def obtener_datos_por_ip(ip):
     else:
         print(f"Error: ip is outside the host network")
 
-# Función para obtener los datos de fabricación de una tarjeta de red por MAC
+# Función para obtener los datos de fabricación de una tarjeta de red por api
 def obtener_datos_por_api(mac):
     url = f"https://api.maclookup.app/v2/macs/{mac}/company/name?apiKey=01hexea024hba2yb7fqt7jkqmp01hexnkmgj9gffg4nzbtm1t3qfbqsm99zphjiw"
     inicio=time.time()
     response = requests.get(url)
     fin = time.time()
     if response.status_code == 200:
-        #data = response.json()
         if(response.text == "*NO COMPANY*" or response.text == "*PRIVATE*"):
             return "Not Found",round((fin-inicio) * 1000)
         else:
